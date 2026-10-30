@@ -1,4 +1,5 @@
 import Countdown from "./components/Countdown";
+import Gallery from "./components/Gallery";
 import PhotoHearts from "./components/PhotoHearts";
 import Petals from "./components/Petals";
 import Reveal from "./components/Reveal";
@@ -65,6 +66,13 @@ export default function Home() {
         <Reveal delay={250}>
           <RsvpForm />
         </Reveal>
+      </section>
+
+      <section className="section compact" id="galleri">
+        <Reveal>
+          <p className="lead">Noen glimt av oss</p>
+        </Reveal>
+        <Gallery />
       </section>
 
       <footer className="footer">
