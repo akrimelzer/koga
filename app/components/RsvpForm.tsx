@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { submitRsvp, type RsvpState } from "../actions";
+import Confetti from "./Confetti";
 
 export default function RsvpForm() {
   const [state, action, pending] = useActionState<RsvpState, FormData>(submitRsvp, null);
@@ -10,8 +11,13 @@ export default function RsvpForm() {
   if (state?.ok) {
     return (
       <div className="thanks">
+        {attending === "yes" && <Confetti />}
         <p className="thanks-title">Tusen takk!</p>
-        <p>Vi har mottatt svaret ditt.</p>
+        <p>
+          {attending === "yes"
+            ? "Vi gleder oss til å feire sammen med deg."
+            : "Vi har mottatt svaret ditt, og skjønner det godt."}
+        </p>
       </div>
     );
   }
